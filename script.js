@@ -23,11 +23,21 @@ function drawCanvas(cls, width, height) {
 		ey = 2000;
 		svg = parser.parseFromString(xml2, "text/xml");
 	} else if (cls == 3) {
-		sx = 0;
-		sy = 0;
-		ex = 830;
-		ey = 560;
-		svg = parser.parseFromString(xml3, "text/xml");
+		// sx = 0;
+		// sy = 0;
+		// ex = 830;
+		// ey = 560;
+		// svg = parser.parseFromString(xml3, "text/xml");
+		ctx.strokeStyle = "#e8e8e8";
+		ctx.fillStyle = "#e8e8e8";
+		for (let x = 5; x <= width; x += 15) {
+			for (let y = 5; y <= height; y += 15) {
+				ctx.beginPath();
+				ctx.arc(x, y, 2, 0, 6.28);
+				ctx.fill();
+			}
+		}
+		return;
 	} else if (cls == 4) {
 		sx = 400;
 		sy = 400;
@@ -35,11 +45,11 @@ function drawCanvas(cls, width, height) {
 		ey = 1100;
 		svg = parser.parseFromString(xml4, "text/xml");
 	} else if (cls == 5) {
-		for (let x = 0; x <= width; x += 50) {
+		for (let x = 5; x <= width; x += 50) {
 			ctx.moveTo(x, 0);
 			ctx.lineTo(x, height);
 		}
-		for (let y = 0; y <= height; y += 50) {
+		for (let y = 5; y <= height; y += 50) {
 			ctx.moveTo(0, y);
 			ctx.lineTo(width, y);
 		}
@@ -153,7 +163,7 @@ function drawCanvas(cls, width, height) {
 
 width = window.innerWidth - 20;
 height = window.innerHeight - 20;
-let cls = 5;
+let cls = 1;
 drawCanvas(cls, width, height);
 
 document.body.onresize = () => {
